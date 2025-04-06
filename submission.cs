@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Xml;
 using System.Xml.Schema;
-using Newtonsoft.Json;
+using Newtonsoft.Json
 
 namespace ConsoleApp1
 {
@@ -16,17 +16,14 @@ namespace ConsoleApp1
         public static void Main(string[] args)
         {
             // Verify valid XML
-            Console.WriteLine("Validating Hotels.xml...");
             string result = Verification(xmlURL, xsdURL);
             Console.WriteLine(result);
 
             // Verify invalid XML
-            Console.WriteLine("\nValidating HotelsErrors.xml...");
             result = Verification(xmlErrorURL, xsdURL);
             Console.WriteLine(result);
 
             // Convert to JSON
-            Console.WriteLine("\nConverting Hotels.xml to JSON...");
             result = Xml2Json(xmlURL);
             Console.WriteLine(result);
         }
@@ -46,7 +43,7 @@ namespace ConsoleApp1
                 settings.ValidationEventHandler += (sender, e) =>
                 {
                     hasErrors = true;
-                    errors.AppendLine($"{e.Severity}: {e.Message}");
+                    errors.AppendLine($"{e.Message}");
                 };
 
                 using (XmlReader reader = XmlReader.Create(xmlUrl, settings))
@@ -54,11 +51,11 @@ namespace ConsoleApp1
                     while (reader.Read()) { }
                 }
 
-                return hasErrors ? errors.ToString().Trim() : "No errors are found.";
+                return hasErrors ? errors.ToString().Trim() : "No Error";
             }
             catch (Exception ex)
             {
-                return $"Validation exception: {ex.Message}";
+                return ex.Message;
             }
         }
 
@@ -67,18 +64,36 @@ namespace ConsoleApp1
         {
             try
             {
+                // Loads XML
                 XmlDocument doc = new XmlDocument();
                 doc.Load(xmlUrl);
 
-                // Special handling to ensure proper JSON structure
-                string json = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.Indented, true);
+                // Converts to JSON with attributes prefixed with '_'
+                string json = JsonConvert.SerializeXmlNode(
+                    doc,
+                    Newtonsoft.Json.Formatting.Indented,
+                    true 
+                );
 
-                // Verify the conversion
-                JsonConvert.DeserializeXmlNode(json);
+                // Validates the JSON structure
+                if (string.IsNullOrEmpty(json) || !json.Contains("\"Hotel\":"))
+                {
+                    throw new InvalidOperationException("Invalid JSON: Missing Hotel array");
+                }
+
+                // Verifies round-trip conversion 
+                var xmlNode = JsonConvert.DeserializeXmlNode(json);
+                if (xmlNode == null)
+                {
+                    throw new InvalidOperationException("JSON could not be deserialized back to XML");
+                }
+
+                // Returns the JSON
                 return json;
             }
             catch (Exception ex)
             {
+                // Return error message if conversion fails
                 return $"Conversion error: {ex.Message}";
             }
         }

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="https://github.com/ChaseZellers/czellers.github.io/blob/main/Hotels.xml">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+  
   <xs:element name="Hotels">
     <xs:complexType>
       <xs:sequence>
@@ -8,6 +11,7 @@
             <xs:sequence>
               <xs:element name="Name" type="xs:string"/>
               <xs:element name="Phone" type="xs:string" maxOccurs="unbounded"/>
+              <xs:element name="Host" type="xs:string"/> 
               <xs:element name="Address">
                 <xs:complexType>
                   <xs:sequence>
@@ -15,7 +19,7 @@
                     <xs:element name="Street" type="xs:string"/>
                     <xs:element name="City" type="xs:string"/>
                     <xs:element name="State" type="xs:string"/>
-                    <xs:element name="Zip" type="xs:integer"/>
+                    <xs:element name="Zip" type="xs:string"/>
                   </xs:sequence>
                   <xs:attribute name="NearstAirport" type="xs:string" use="required"/>
                 </xs:complexType>

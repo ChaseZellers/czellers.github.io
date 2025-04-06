@@ -1,55 +1,59 @@
 using System;
+using System.Net;
 using System.Xml;
 using System.Xml.Schema;
 
-class Program
+namespace ConsoleApp1
 {
-    static bool validationSuccess = true;
-
-    static void Main()
+    class Program
     {
-        XmlReaderSettings settings = new XmlReaderSettings();
-        settings.Schemas.Add(null, "Hotels.xsd");
-        settings.ValidationType = ValidationType.Schema;
-        settings.ValidationEventHandler += new ValidationEventHandler(ValidationCallback);
+        // URLs to your hosted XML and XSD files on GitHub (raw links)
+        static string hotelsXmlUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xml";
+        static string hotelsXsdUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xsd";
+        static string hotelsErrorsXmlUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/HotelsErrors.xml";
 
-        Console.WriteLine("Validating Hotels.xml:");
-        ValidateXML("Hotels.xml", settings);
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Validating Hotels.xml...");
+            ValidateXmlFromUrl(hotelsXmlUrl, hotelsXsdUrl);
 
-        Console.WriteLine("\nValidating HotelsErrors.xml:");
-        ValidateXML("HotelsErrors.xml", settings);
-    }
+            Console.WriteLine("\nValidating HotelsErrors.xml...");
+            ValidateXmlFromUrl(hotelsErrorsXmlUrl, hotelsXsdUrl);
+        }
 
-    static void ValidateXML(string xmlFile, XmlReaderSettings settings)
-    {
-        validationSuccess = true;
-
-        using (XmlReader reader = XmlReader.Create(xmlFile, settings))
+        // Method to validate XML from a URL using a remote XSD file
+        static void ValidateXmlFromUrl(string xmlUrl, string xsdUrl)
         {
             try
             {
-                while (reader.Read()) ;
+                XmlReaderSettings settings = new XmlReaderSettings();
+
+                // Add the schema from the XSD URL
+                settings.Schemas.Add(null, XmlReader.Create(xsdUrl));
+                settings.ValidationType = ValidationType.Schema;
+                settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
+                settings.ValidationEventHandler += new ValidationEventHandler(ValidationCallback);
+
+                // Read the XML document from the given URL
+                XmlReader reader = XmlReader.Create(xmlUrl, settings);
+
+                while (reader.Read()) { } // Force the reader to validate the entire XML
+
+                Console.WriteLine("Validation completed.");
             }
-            catch (XmlException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine($"XML Exception: {ex.Message}");
-                validationSuccess = false;
+                Console.WriteLine("Error validating XML: " + ex.Message);
             }
         }
 
-        if (validationSuccess)
+        // Callback for validation errors and warnings
+        static void ValidationCallback(object sender, ValidationEventArgs e)
         {
-            Console.WriteLine($"{xmlFile} is valid.");
+            if (e.Severity == XmlSeverityType.Warning)
+                Console.WriteLine("WARNING: " + e.Message);
+            else
+                Console.WriteLine("ERROR: " + e.Message);
         }
-        else
-        {
-            Console.WriteLine($"{xmlFile} is INVALID.");
-        }
-    }
-
-    static void ValidationCallback(object sender, ValidationEventArgs args)
-    {
-        Console.WriteLine($"Validation {args.Severity}: {args.Message}");
-        validationSuccess = false;
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Xml;
 using System.Xml.Schema;
 using Newtonsoft.Json;
@@ -39,20 +40,13 @@ namespace ConsoleApp1
                 settings.Schemas.Add(null, XmlReader.Create(xsdUrl));
                 settings.ValidationType = ValidationType.Schema;
 
-                string errorMessage = "No Error";
+                StringBuilder errors = new StringBuilder();
                 bool hasErrors = false;
 
                 settings.ValidationEventHandler += (sender, e) =>
                 {
                     hasErrors = true;
-                    if (e.Severity == XmlSeverityType.Error)
-                    {
-                        errorMessage = $"Validation Error: {e.Message}";
-                    }
-                    else
-                    {
-                        errorMessage = $"Validation Warning: {e.Message}";
-                    }
+                    errors.AppendLine($"{e.Severity}: {e.Message}");
                 };
 
                 using (XmlReader reader = XmlReader.Create(xmlUrl, settings))
@@ -60,11 +54,11 @@ namespace ConsoleApp1
                     while (reader.Read()) { }
                 }
 
-                return hasErrors ? errorMessage : "No errors are found.";
+                return hasErrors ? errors.ToString().Trim() : "No errors are found.";
             }
             catch (Exception ex)
             {
-                return $"Exception during validation: {ex.Message}";
+                return $"Validation exception: {ex.Message}";
             }
         }
 
@@ -73,20 +67,19 @@ namespace ConsoleApp1
         {
             try
             {
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load(xmlUrl);
+                XmlDocument doc = new XmlDocument();
+                doc.Load(xmlUrl);
 
-                // Convert to JSON with proper formatting
-                string jsonText = JsonConvert.SerializeXmlNode(xmlDoc, Newtonsoft.Json.Formatting.Indented, true);
+                // Special handling to ensure proper JSON structure
+                string json = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.Indented, true);
 
-                // Verify the JSON can be deserialized back to XML
-                JsonConvert.DeserializeXmlNode(jsonText);
-
-                return jsonText;
+                // Verify the conversion
+                JsonConvert.DeserializeXmlNode(json);
+                return json;
             }
             catch (Exception ex)
             {
-                return $"Exception during XML to JSON conversion: {ex.Message}";
+                return $"Conversion error: {ex.Message}";
             }
         }
     }

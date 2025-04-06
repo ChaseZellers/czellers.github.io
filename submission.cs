@@ -7,7 +7,7 @@ namespace ConsoleApp1
 {
     public class Program
     {
-        // URLs my github
+        // URLs to my github
         public static string hotelsXmlUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xml";
         public static string hotelsXsdUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xsd";
         public static string hotelsErrorsXmlUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/HotelsErrors.xml";

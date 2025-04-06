@@ -1,33 +1,134 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="Hotels.xsd">
-
-  <Hotel HotelID="101">
-    <Name>Ocean View Inn</Name>
-    <Address>123 Beach Road</Address>
-    <Rooms>
-      <RoomNumber>101</RoomNumber>
-      <Type>Deluxe</Type>
-      <Price>150.00</Price>
-      <Available>true</Available>
-    </Rooms>
-    <Rooms>
-      <RoomNumber>102</RoomNumber>
-      <Type>Standard</Type>
-      <Price>100.00</Price>
-      <Available>false</Available>
-    </Rooms>
+<?xml version="1.0" encoding="utf-8"?>
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hotels.xsd">
+  <Hotel>
+    <Name>Westin</Name>
+    <Phone>480-968-8885</Phone>
+    <Phone>800-937-8461</Phone>
+    <Host>Westin Hotels &amp; Resorts</Host>
+    <Address NearestAirport="Sky Harbor">
+      <Number>11</Number>
+      <Street>E 7th St</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+    <Rating>4.2</Rating>
   </Hotel>
-
-  <Hotel HotelID="102">
-    <Name>Mountain Lodge</Name>
-    <Address>456 Hilltop Avenue</Address>
-    <Rooms>
-      <RoomNumber>201</RoomNumber>
-      <Type>Suite</Type>
-      <Price>200.00</Price>
-      <Available>true</Available>
-    </Rooms>
+  <Hotel>
+    <Name>Hilton Phoenix Airport</Name>
+    <Phone>602-273-7777</Phone>
+    <Host>Hilton Worldwide</Host>
+    <Address>
+      <Number>2435</Number>
+      <Street>S 47th St</Street>
+      <City>Phoenix</City>
+      <State>AZ</State>
+      <Zip>85034</Zip>
+    </Address>
+    <Rating>4.1</Rating>
   </Hotel>
-
+  <Hotel>
+    <Name>Sheraton Grand Phoenix</Name>
+    <Phone>602-262-2500</Phone>
+    <Phone>888-627-7035</Phone>
+    <Host>Marriott International</Host>
+    <Address NearestAirport="Phoenix Sky Harbor">
+      <Number>340</Number>
+      <Street>N 3rd St</Street>
+      <City>Phoenix</City>
+      <State>AZ</State>
+      <Zip>85004</Zip>
+    </Address>
+    <Rating>4.3</Rating>
+  </Hotel>
+  <Hotel>
+    <Name>Hyatt Regency Phoenix</Name>
+    <Phone>602-252-1234</Phone>
+    <Host>Hyatt Hotels Corporation</Host>
+    <Address>
+      <Number>122</Number>
+      <Street>N 2nd St</Street>
+      <City>Phoenix</City>
+      <State>AZ</State>
+      <Zip>85004</Zip>
+    </Address>
+    <Rating>4.4</Rating>
+  </Hotel>
+  <Hotel>
+    <Name>Renaissance Phoenix Downtown Hotel</Name>
+    <Phone>602-333-0000</Phone>
+    <Host>Marriott International</Host>
+    <Address>
+      <Number>100</Number>
+      <Street>N 1st St</Street>
+      <City>Phoenix</City>
+      <State>AZ</State>
+      <Zip>85004</Zip>
+    </Address>
+    <Rating>4.5</Rating>
+  </Hotel>
+  <Hotel>
+    <Name>Found:Re Phoenix Hotel</Name>
+    <Phone>602-875-8000</Phone>
+    <Host>Found:Re Hotels</Host>
+    <Address NearestAirport="Phoenix Sky Harbor International">
+      <Number>1100</Number>
+      <Street>N Central Ave</Street>
+      <City>Phoenix</City>
+      <State>AZ</State>
+      <Zip>85004</Zip>
+    </Address>
+  </Hotel>
+  <Hotel>
+    <Name>The Camby Hotel</Name>
+    <Phone>602-468-0700</Phone>
+    <Host>Autograph Collection</Host>
+    <Address>
+      <Number>2401</Number>
+      <Street>E Camelback Rd</Street>
+      <City>Phoenix</City>
+      <State>AZ</State>
+      <Zip>85016</Zip>
+    </Address>
+    <Rating>4.6</Rating>
+  </Hotel>
+  <Hotel>
+    <Name>Arizona Biltmore</Name>
+    <Phone>602-955-6600</Phone>
+    <Phone>800-950-0086</Phone>
+    <Host>Waldorf Astoria</Host>
+    <Address>
+      <Number>2400</Number>
+      <Street>E Missouri Ave</Street>
+      <City>Phoenix</City>
+      <State>AZ</State>
+      <Zip>85016</Zip>
+    </Address>
+    <Rating>4.7</Rating>
+  </Hotel>
+  <Hotel>
+    <Name>Royal Palms Resort and Spa</Name>
+    <Phone>602-840-3610</Phone>
+    <Host>Hyatt Hotels Corporation</Host>
+    <Address>
+      <Number>5200</Number>
+      <Street>E Camelback Rd</Street>
+      <City>Phoenix</City>
+      <State>AZ</State>
+      <Zip>85018</Zip>
+    </Address>
+    <Rating>4.8</Rating>
+  </Hotel>
+  <Hotel>
+    <Name>Hermosa Inn</Name>
+    <Phone>602-955-8614</Phone>
+    <Host>Legendary Hotels</Host>
+    <Address NearestAirport="Phoenix Sky Harbor International">
+      <Number>5532</Number>
+      <Street>N Palo Cristi Rd</Street>
+      <City>Paradise Valley</City>
+      <State>AZ</State>
+      <Zip>85253</Zip>
+    </Address>
+  </Hotel>
 </Hotels>

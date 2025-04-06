@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xsd">
-  <!-- Hotel 1 -->
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xsd">
+  
+  <!-- Hotel 1 (Example from Figure 1) -->
   <Hotel Rating="4.2">
     <Name>Westin</Name>
     <Phone>480-968-8885</Phone>
@@ -8,7 +10,7 @@
     <Host>Westin Hotels</Host>
     <Address NearstAirport="Sky Harbor">
       <Number>11</Number>
-      <Street>E 7th St</Street>
+      <Street>E.7th St</Street>  <!-- Changed from "E 7th St" to match diagram exactly -->
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>

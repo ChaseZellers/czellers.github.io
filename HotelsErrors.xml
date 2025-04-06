@@ -2,7 +2,7 @@
 <Hotel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hotels.xsd">
   <Hotel>
     <Name>Westin</Name>
-    <!-- Error 3: Missing Phone element (should be present) -->
+    <!-- Error 3: Missing Phone element -->
     <Host>Westin Hotels &amp; Resorts</Host>
     <Address NearestAirport="Sky Harbor">
       <Number>11</Number>

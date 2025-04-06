@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="Hotels.xsd">
+
+  <Hotel>
+    <Name>Broken Hotel</Name>
+    <Address>999 Broken Blvd</Address>
+    <Rooms>
+      <RoomNumber>999</RoomNumber>
+      <Type>Penthouse</Type>
+      <Price>500.00</Price>
+      <Available>true</Available>
+    </Rooms>
+  </Hotel>
+
+  <Hotel HotelID="103">
+    <Name>Another Hotel</Name>
+    <Address>789 Avenue</Address>
+    <Rooms>
+      <RoomNumber>ABC</RoomNumber>
+      <Type>Standard</Type>
+      <Price>120.00</Price>
+      <Available>false</Available>
+    </Rooms>
+  </Hotel>
+
+  <Hotel HotelID="104">
+    <Name>Yet Another Hotel</Name>
+    <Address>321 Central St</Address>
+    <Rooms>
+      <RoomNumber>103</RoomNumber>
+      <Type>Economy</Type>
+      <Price>90.00</Price>
+    </Rooms>
+  </Hotel>
+
+</Hotels>

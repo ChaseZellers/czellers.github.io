@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="Hotels.xsd">
+
+  <Hotel HotelID="101">
+    <Name>Ocean View Inn</Name>
+    <Address>123 Beach Road</Address>
+    <Rooms>
+      <RoomNumber>101</RoomNumber>
+      <Type>Deluxe</Type>
+      <Price>150.00</Price>
+      <Available>true</Available>
+    </Rooms>
+    <Rooms>
+      <RoomNumber>102</RoomNumber>
+      <Type>Standard</Type>
+      <Price>100.00</Price>
+      <Available>false</Available>
+    </Rooms>
+  </Hotel>
+
+  <Hotel HotelID="102">
+    <Name>Mountain Lodge</Name>
+    <Address>456 Hilltop Avenue</Address>
+    <Rooms>
+      <RoomNumber>201</RoomNumber>
+      <Type>Suite</Type>
+      <Price>200.00</Price>
+      <Available>true</Available>
+    </Rooms>
+  </Hotel>
+
+</Hotels>

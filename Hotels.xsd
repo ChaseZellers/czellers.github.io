@@ -18,7 +18,6 @@
                     <xs:element name="State" type="xs:string"/>
                     <xs:element name="Zip" type="xs:string"/>
                   </xs:sequence>
-                  <!-- Change from optional to required -->
                   <xs:attribute name="NearstAirport " type="xs:string" use="required"/>
                 </xs:complexType>
               </xs:element>

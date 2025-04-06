@@ -6,7 +6,7 @@
     <Phone>480-968-8885</Phone>
     <Phone>800-937-8461</Phone>
     <Host>Westin Hotels</Host>
-    <Address _NearestAirport"="Sky Harbor">
+    <Address NearstAirport "="Sky Harbor">
       <Number>11</Number>
       <Street>E 7th St</Street>
       <City>Tempe</City>
@@ -35,7 +35,7 @@
     <Name>Sheraton Grand Phoenix</Name>
     <Phone>602-262-2500</Phone>
     <Host>Marriott International</Host>
-    <Address _NearestAirport"="PHX Sky Harbor">
+    <Address NearstAirport "="PHX Sky Harbor">
       <Number>340</Number>
       <Street>N 3rd St</Street>
       <City>Phoenix</City>
@@ -64,7 +64,7 @@
     <Name>Arizona Biltmore</Name>
     <Phone>602-955-6600</Phone>
     <Host>Waldorf Astoria</Host>
-    <Address _NearestAirport"="Phoenix Sky Harbor">
+    <Address NearstAirport "="Phoenix Sky Harbor">
       <Number>2400</Number>
       <Street>E Missouri Ave</Street>
       <City>Phoenix</City>
@@ -93,7 +93,7 @@
     <Phone>602-468-0700</Phone>
     <Phone>855-468-0700</Phone>
     <Host>Autograph Collection</Host>
-    <Address _NearestAirport"="PHX">
+    <Address NearstAirport "="PHX">
       <Number>2401</Number>
       <Street>E Camelback Rd</Street>
       <City>Phoenix</City>
@@ -121,7 +121,7 @@
     <Name>Hermosa Inn</Name>
     <Phone>602-955-8614</Phone>
     <Host>Legendary Hotels</Host>
-    <Address _NearestAirport"="Sky Harbor Intl">
+    <Address NearstAirport "="Sky Harbor Intl">
       <Number>5532</Number>
       <Street>N Palo Cristi Rd</Street>
       <City>Paradise Valley</City>

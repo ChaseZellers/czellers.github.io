@@ -8,51 +8,71 @@ namespace ConsoleApp1
     {
         // URLs to my github
         public static string hotelsXmlUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xml";
-        public static string hotelsXsdUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xsd";
         public static string hotelsErrorsXmlUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/HotelsErrors.xml";
+        public static string hotelsXsdUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xsd";
+        
 
         public static void Main(string[] args)
         {
             Console.WriteLine("Validating Hotels.xml...");
-            ValidateXmlFromUrl(hotelsXmlUrl, hotelsXsdUrl);
+            string result = Verification(hotelsXmlUrl, hotelsXsdUrl);
+            Console.WriteLine(result);
 
             Console.WriteLine("\nValidating HotelsErrors.xml...");
-            ValidateXmlFromUrl(hotelsErrorsXmlUrl, hotelsXsdUrl);
+            result = Verification(hotelsErrorsXmlUrl, hotelsXsdUrl);
+            Console.WriteLine(result);
+
+            Console.WriteLine("\nConverting Hotels.xml to JSON...");
+            result = Xml2Json(hotelsXmlUrl);
+            Console.WriteLine(result);
         }
 
         // Method that will validate the XML from a URL using a remote XSD file
-        public static void ValidateXmlFromUrl(string xmlUrl, string xsdUrl)
+        public static void Verification(string hotelsXmlUrl, string hotelsXsdUrl)
         {
             try
             {
                 XmlReaderSettings settings = new XmlReaderSettings();
-
-                // Schema from the XSD URL
                 settings.Schemas.Add(null, XmlReader.Create(xsdUrl));
                 settings.ValidationType = ValidationType.Schema;
-                settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
-                settings.ValidationEventHandler += new ValidationEventHandler(ValidationCallback);
+                string errorMessage = "No Error";
 
-                // Read the XML document from the given URL
-                XmlReader reader = XmlReader.Create(xmlUrl, settings);
+                settings.ValidationEventHandler += (sender, e) =>
+                {
+                    if (e.Severity == XmlSeverityType.Error)
+                        errorMessage = "ERROR: " + e.Message;
+                    else
+                        errorMessage = "WARNING: " + e.Message;
+                };
 
-                while (reader.Read()) { } // Force the reader to validate the entire XML
+                XmlReader reader = XmlReader.Create(hotelsXmlUrl, settings);
+                while (reader.Read()) { }
 
-                Console.WriteLine("Validation completed.");
+                return errorMessage;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error validating XML: " + ex.Message);
+                return "Exception during validation: " + ex.Message;
             }
         }
 
         // Callback for validation errors and warnings
-        public static void ValidationCallback(object sender, ValidationEventArgs e)
+        public static string Xml2Json(string hotelsXmlUrl)
         {
-            if (e.Severity == XmlSeverityType.Warning)
-                Console.WriteLine("WARNING: " + e.Message);
-            else
-                Console.WriteLine("ERROR: " + e.Message);
+            try
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(hotelsXmlUrl);
+
+                // Force JSON attributes with "_"
+                string jsonText = JsonConvert.SerializeXmlNode(xmlDoc, Newtonsoft.Json.Formatting.Indented, true);
+
+                return jsonText;
+            }
+            catch (Exception ex)
+            {
+                return "Exception during XML to JSON conversion: " + ex.Message;
+            }
         }
     }
 }

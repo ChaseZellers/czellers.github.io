@@ -5,14 +5,14 @@ using System.Xml.Schema;
 
 namespace ConsoleApp1
 {
-    class Program
+    public class Program
     {
-        // URLs to your hosted XML and XSD files on GitHub (raw links)
-        static string hotelsXmlUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xml";
-        static string hotelsXsdUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xsd";
-        static string hotelsErrorsXmlUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/HotelsErrors.xml";
+        // URLs my github
+        public static string hotelsXmlUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xml";
+        public static string hotelsXsdUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xsd";
+        public static string hotelsErrorsXmlUrl = "https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/HotelsErrors.xml";
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Validating Hotels.xml...");
             ValidateXmlFromUrl(hotelsXmlUrl, hotelsXsdUrl);
@@ -21,14 +21,14 @@ namespace ConsoleApp1
             ValidateXmlFromUrl(hotelsErrorsXmlUrl, hotelsXsdUrl);
         }
 
-        // Method to validate XML from a URL using a remote XSD file
-        static void ValidateXmlFromUrl(string xmlUrl, string xsdUrl)
+        // Method that will validate the XML from a URL using a remote XSD file
+        public static void ValidateXmlFromUrl(string xmlUrl, string xsdUrl)
         {
             try
             {
                 XmlReaderSettings settings = new XmlReaderSettings();
 
-                // Add the schema from the XSD URL
+                // Schema from the XSD URL
                 settings.Schemas.Add(null, XmlReader.Create(xsdUrl));
                 settings.ValidationType = ValidationType.Schema;
                 settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
@@ -48,7 +48,7 @@ namespace ConsoleApp1
         }
 
         // Callback for validation errors and warnings
-        static void ValidationCallback(object sender, ValidationEventArgs e)
+        public static void ValidationCallback(object sender, ValidationEventArgs e)
         {
             if (e.Severity == XmlSeverityType.Warning)
                 Console.WriteLine("WARNING: " + e.Message);

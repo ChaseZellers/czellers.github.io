@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespacen="Hotels.xsd">
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/ChaseZellers/czellers.github.io/main/Hotels.xsd">
   <!-- Hotel 1 -->
   <Hotel Rating="4.2">
     <Name>Westin</Name>

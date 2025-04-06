@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hotels.xsd">
-  <!-- Hotel 1 -->
+  <!-- Hotel 1 (Example from Figure 1) -->
   <Hotel Rating="4.2">
     <Name>Westin</Name>
     <Phone>480-968-8885</Phone>
@@ -16,12 +16,12 @@
   </Hotel>
 
   <!-- Hotel 2 -->
-  <Hotel Rating="4.5">
+  <Hotel>
     <Name>Hilton Phoenix Airport</Name>
     <Phone>602-273-7777</Phone>
-    <Phone>888-999-0000</Phone>
+    <Phone>602-273-7778</Phone>
     <Host>Hilton Worldwide</Host>
-    <Address NearstAirport="Phoenix Sky Harbor">
+    <Address NearstAirport="Phoenix Sky Harbor International">
       <Number>2435</Number>
       <Street>S 47th St</Street>
       <City>Phoenix</City>
@@ -31,7 +31,7 @@
   </Hotel>
 
   <!-- Hotel 3 -->
-  <Hotel>
+  <Hotel Rating="4.5">
     <Name>Sheraton Grand Phoenix</Name>
     <Phone>602-262-2500</Phone>
     <Host>Marriott International</Host>
@@ -48,8 +48,7 @@
   <Hotel Rating="4.3">
     <Name>Hyatt Regency Phoenix</Name>
     <Phone>602-252-1234</Phone>
-    <Phone>888-591-1234</Phone>
-    <Host>Hyatt Corporation</Host>
+    <Host>Hyatt Hotels</Host>
     <Address NearstAirport="Phoenix Sky Harbor">
       <Number>122</Number>
       <Street>N 2nd St</Street>
@@ -60,9 +59,10 @@
   </Hotel>
 
   <!-- Hotel 5 -->
-  <Hotel Rating="4.7">
+  <Hotel>
     <Name>Arizona Biltmore</Name>
     <Phone>602-955-6600</Phone>
+    <Phone>888-994-0295</Phone>
     <Host>Waldorf Astoria</Host>
     <Address NearstAirport="Phoenix Sky Harbor">
       <Number>2400</Number>
@@ -74,7 +74,7 @@
   </Hotel>
 
   <!-- Hotel 6 -->
-  <Hotel>
+  <Hotel Rating="4.1">
     <Name>Found:Re Phoenix</Name>
     <Phone>602-875-8000</Phone>
     <Host>Found:Re Hotels</Host>
@@ -88,10 +88,9 @@
   </Hotel>
 
   <!-- Hotel 7 -->
-  <Hotel Rating="4.4">
+  <Hotel>
     <Name>The Camby</Name>
     <Phone>602-468-0700</Phone>
-    <Phone>855-468-0700</Phone>
     <Host>Autograph Collection</Host>
     <Address NearstAirport="PHX">
       <Number>2401</Number>
@@ -103,9 +102,10 @@
   </Hotel>
 
   <!-- Hotel 8 -->
-  <Hotel>
+  <Hotel Rating="4.4">
     <Name>Royal Palms Resort</Name>
     <Phone>602-840-3610</Phone>
+    <Phone>800-672-6111</Phone>
     <Host>Hyatt Corporation</Host>
     <Address NearstAirport="Phoenix Sky Harbor">
       <Number>5200</Number>
@@ -117,7 +117,7 @@
   </Hotel>
 
   <!-- Hotel 9 -->
-  <Hotel Rating="4.6">
+  <Hotel>
     <Name>Hermosa Inn</Name>
     <Phone>602-955-8614</Phone>
     <Host>Legendary Hotels</Host>
@@ -131,10 +131,9 @@
   </Hotel>
 
   <!-- Hotel 10 -->
-  <Hotel>
-    <Name>Renaissance Phoenix</Name>
+  <Hotel Rating="4.7">
+    <Name>Renaissance Phoenix Downtown</Name>
     <Phone>602-333-0000</Phone>
-    <Phone>800-333-0000</Phone>
     <Host>Marriott International</Host>
     <Address NearstAirport="Phoenix Sky Harbor">
       <Number>100</Number>
